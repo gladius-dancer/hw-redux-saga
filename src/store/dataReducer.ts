@@ -4,18 +4,18 @@ type State = {
     title: string
 }
 
-const initialState: State[] = []
+const initialState: State[] = [];
 
 export const LOAD_DATA = "LOAD_DATA";
 export const ASYNC_LOAD_DATA = "ASYNC_LOAD_DATA";
 
-export default function countReducer(state= initialState, action:any){
-        switch (action.type){
-            case LOAD_DATA: return  {...state, data: action.payload}
-        }
+export default function dataReducer(state = initialState, action: any) {
+    switch (action.type) {
+        case LOAD_DATA:
+            return [...state, ...action.payload]
+    }
     return state
 }
-
 
 export const loadData = (data: State) => ({type: LOAD_DATA, payload: data});
 export const asyncLoadData = () => ({type: ASYNC_LOAD_DATA});

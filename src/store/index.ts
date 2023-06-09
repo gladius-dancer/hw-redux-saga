@@ -1,7 +1,7 @@
 import {combineReducers, createStore, applyMiddleware, compose} from "redux";
 import createSagaMiddleware from "redux-saga";
 import {rootWatcher} from "../sagas";
-import countReducer from "./dataReducer";
+import dataReducer from "./dataReducer";
 
 declare global {
     interface Window {
@@ -12,7 +12,7 @@ declare global {
 const sagaMiddleware = createSagaMiddleware();
 
 const rootReducer = combineReducers({
-    countReducer
+    dataReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
