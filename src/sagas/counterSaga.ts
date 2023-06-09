@@ -4,12 +4,12 @@ import {ASYNC_LOAD_DATA, loadData, loadDataFail, loadDataSuccess} from "../store
 function* asyncLoadData(): any {
     try {
         yield put(loadData())
-        const request = yield call(fetch, "https://5f7998dbe402340016f9321f.mockapi.io/jobs");
-        const data = yield apply(request, request.json, []);
+        const response = yield call(fetch, "https://5f7998dbe402340016f9321f.mockapi.io/jobs");
+        const data = yield apply(response, response.json, []);
         yield put(loadDataSuccess(data));
     }
-    catch (e: any | null) {
-        yield put(loadDataFail(e));
+    catch (e: any) {
+        yield put(loadDataFail(e.message));
     }
 
 }

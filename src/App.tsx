@@ -17,7 +17,8 @@ function App() {
             <div className="container">
                 <div className="app-inner">
                     <Button onClick={() => dispatch(asyncLoadData())} variant="contained">LOAD DATA</Button>
-                    <TableComponent rows={data.data} />
+                    {!data.error && <TableComponent rows={data.data} />}
+                    {data.error && data.error }
                 </div>
             </div>
             {data.loading && <Loader />}

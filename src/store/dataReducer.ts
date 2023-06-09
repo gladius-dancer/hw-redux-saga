@@ -1,12 +1,4 @@
-type State = {
-    data: {
-        id: number,
-        jobId: string,
-        title: string
-    }[],
-    loading: boolean,
-    error: string | null
-}
+import {Data, State} from "../modules/State";
 
 const initialState: State = {
     data: [],
@@ -46,8 +38,8 @@ export default function dataReducer(state = initialState, action: any) {
 }
 
 export const loadData = () => ({type: LOAD_DATA});
-export const loadDataSuccess = (data: State) => ({type: LOAD_DATA_SUCCESS, payload: data});
-export const loadDataFail = (data: any | null) => ({type: LOAD_DATA_FAIL, payload: data});
+export const loadDataSuccess = (data: Data[]) => ({type: LOAD_DATA_SUCCESS, payload: data});
+export const loadDataFail = (error: any | null) => ({type: LOAD_DATA_FAIL, payload: error});
 export const asyncLoadData = () => ({type: ASYNC_LOAD_DATA});
 
 

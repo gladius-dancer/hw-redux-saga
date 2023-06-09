@@ -8,6 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 export default function TableComponent(data: any) {
+
     return (
         <TableContainer component={Paper}>
             <Table aria-label="simple table">
