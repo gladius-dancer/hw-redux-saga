@@ -5,6 +5,7 @@ import {useAppSelector} from "./hooks/useRedux";
 import {useDispatch} from "react-redux";
 import TableComponent from "./components/TableComponent";
 import {Button} from "@mui/material";
+import Loader from "./components/Loader/Loader";
 
 function App() {
 
@@ -16,9 +17,10 @@ function App() {
             <div className="container">
                 <div className="app-inner">
                     <Button onClick={() => dispatch(asyncLoadData())} variant="contained">LOAD DATA</Button>
-                    <TableComponent rows={data} />
+                    <TableComponent rows={data.data} />
                 </div>
             </div>
+            {data.loading && <Loader />}
         </div>
 
     );
