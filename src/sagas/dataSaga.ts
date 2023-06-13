@@ -12,7 +12,6 @@ function* asyncLoadData(): any {
     catch (e: any) {
         yield put(loadDataFail(e.message));
     }
-
 }
 
 export function* dataWatcher() {

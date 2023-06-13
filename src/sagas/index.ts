@@ -1,5 +1,5 @@
 import {all} from "redux-saga/effects";
-import {dataWatcher} from "./counterSaga";
+import {dataWatcher} from "./dataSaga";
 
 export function* rootWatcher() {
     yield all([dataWatcher()])
